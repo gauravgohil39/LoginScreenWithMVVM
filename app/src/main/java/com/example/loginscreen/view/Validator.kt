@@ -24,6 +24,9 @@ object Validator {
     )
 
 
+    val username_list = listOf("kumar@gmail.com", "gohil@gmail.com")
+
+
     fun validateInput(email: String, password: String): Boolean {
 
         if (email.isEmpty() || password.isEmpty()) {
@@ -37,6 +40,8 @@ object Validator {
         if (!PASSWORD_PATTERN.matcher(password).matches()) {
             return false
         }
+        if (email in username_list)
+            return false
 
         return true
     }
